@@ -1,35 +1,35 @@
 const Store = [
 {
     question: "Who is the strongest avenger", 
-    questionChoices: ['Captain America','Hulk','Thor'],
+    questionChoices: ['Captain America','Hulk','Thor', 'Captain Marvel'],
     correctAnswer: 'Thor',
 
 },
 
 {
     question: "Who is the most skilled fighter of the Avengers", 
-    questionChoices:['Black Panther','Black Widow','Captain America'],
+    questionChoices:['Black Panther','Black Widow','Captain America', 'Hawkeye'],
     correctAnswer: 'Black Widow',
 
 },
 
 {
     question: "Who is Ronin", 
-    questionChoices:[ 'Black Widow','Hawkeye','Task Master'],
+    questionChoices:[ 'Black Widow','Hawkeye','Task Master', 'TChalla'],
     correctAnswer: 'Hawkeye'
 
 },
 
 {
     question: "Who is the tactical leader of the avengers", 
-    questionChoices: [ 'Captin America','Tony Stark','Nick Fury'],
+    questionChoices: [ 'Captin America','Tony Stark','Nick Fury', 'Black Widow'],
     correctAnswer: 'Captain America'
 
 },
 
 {
     question: "Who is the smartest avenger", 
-    questionChoices: ['Shuri','Bruce Banner','Tony Stark'],
+    questionChoices: ['Shuri','Bruce Banner','Tony Stark', 'Falcon'],
     correctAnswer: 'Tony Stark'
 
 },
