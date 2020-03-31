@@ -46,7 +46,6 @@ button {
     justify-content: center;
     align-items: center;
     width: 80%;
-    height: 50vh;
     text-align: center;
     border: 2px solid black;
 }
@@ -57,7 +56,7 @@ section {
     justify-content: center;
     align-items: center;
     width: 80%;
-    height: 50vh;
+    padding: 30px 20px;
     border: 5px solid red; 
 }
 
