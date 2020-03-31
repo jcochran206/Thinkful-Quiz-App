@@ -3,6 +3,15 @@
     margin: 0;
     box-sizing: border-box;
 }
+html {
+    background-color: grey;
+    background: rgba(0, 0, 0, 0) url("../imgs/avengers.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 h1{
     font-size: 40px;
     font-weight: bold;
