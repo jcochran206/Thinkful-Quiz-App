@@ -1,4 +1,4 @@
-const Questions = [
+const Store = [
 {
     question: "Who is the strongest avenger", 
     questionChoices: ['Captain America','Hulk','Thor'],
@@ -39,8 +39,21 @@ const Questions = [
 let score = 0;
 let questionNumber = 0;
 
+//initialize quiz
+function init(){
+    $('#start').on('click', function(){
+        $('#start').hide();
+        $("#questions").show();
+        $('.correct').hide();
+        $('.wrong').hide();
+        $('#score').hide();
+        console.log('started quiz');
+    })
+}
+
 //this functions loads the questions into the question page
 function renderQuestions() {
+    
 
 }
 
@@ -67,7 +80,7 @@ function resetQuiz(){
 }
 
 function main(){
-    
+    init();
     renderQuestions();
     checkAns();
     nextQuestion();

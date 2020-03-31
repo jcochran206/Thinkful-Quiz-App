@@ -9,9 +9,12 @@
 </head>
 <body>
     <main class="container">
+        <header>
+            <h1>Marvel Universe Fan Quiz</h1>
+        </header>
         <section id="start" class="hero">
-                <h1>Are you a big MCU fan?
-                 <br>Do you want to find out?</h1>
+                <h2>Are you a big MCU fan?
+                 <br>Do you want to find out?</h2>
                  <br>
                  <button type="button" id="start">Start Quiz</button>
         </section>
@@ -31,9 +34,32 @@
         </section>
         <section class="correct">
             <h1> Awesome !!! you got it correct </h1>
+            <div class="img-holder">
+                <!--<img src="imgs/correctans.jpg" alt="Correct answer">-->
+            </div>
+            <div class="status">
+                <h3> Current Score is</h3>
+                <ul>
+                    <li>Score: </li>
+                    <li>Missed: </li>
+                </ul>
+                <button> next </button>
+            </div>
         </section>
-        <section class="Wrong">
-            <h1> Try Again !!! </h1>
+        <section class="wrong">
+            <div class="img-holder">
+                <!-- <img src="imgs/wrongans.jpg" alt="Correct answer"> -->
+            </div>
+            <div class="status">
+                <div class="status">
+                    <h3> Current Score is</h3>
+                    <ul>
+                        <li>Score: </li>
+                        <li>Missed: </li>
+                    </ul>
+                    <button> next </button>
+                </div>
+            </div>
         </section>
         <section id="score" class="total">
             <h1>Greate Job your Total is: </h1>
@@ -42,6 +68,10 @@
             <button id="reset"> Reset Quiz </button>
         </section>
     </main>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
