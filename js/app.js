@@ -106,7 +106,7 @@ function renderQuestions() {
     </form>`
 
     //loop thru array of questions 
-
+    
     
     console.log('inside render question');
 }
