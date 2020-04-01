@@ -38,6 +38,7 @@ const Store = [
 
 let score = 0;
 let questionNumber = 0;
+let totalNumberQuetions = questionNumber.length;
 
 //initialize quiz
 function init(){
@@ -89,8 +90,25 @@ function init(){
 
 //this functions loads the questions into the question page
 function renderQuestions() {
-    console.log('inside render question');
+    //display questions to page
+    let questionHtml = `
+    <form class="card" id="quiz">
+    <h2>Question:${Store.question}</h2>
+    <div>
+    <input type="radio" value="">
+    <label for="0">${Store.questionChoices[i]} </label><br>
+    <input type="radio" value="">
+    <label for="1">${Store.questionChoices[i]}</label><br>
+    <input type="radio" value="other">
+    <label for="2">${Store.questionChoices[i]}</label>
+    </div>
+    <button type="submit"> Submit </button>
+    </form>`
 
+    //loop thru array of questions 
+
+    
+    console.log('inside render question');
 }
 
 //this function handles when the user clicks the submit
