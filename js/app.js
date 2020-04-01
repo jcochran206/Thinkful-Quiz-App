@@ -1,139 +1,90 @@
-const Store = [
-{
-    question: "Who is the strongest avenger", 
-    questionChoices: ['Captain America','Hulk','Thor', 'Captain Marvel'],
-    correctAnswer: 'Thor',
+//variables 
+let currentQuestion = {};
+let acceptAns = false;
+let score = 35;
+let questionCounter = 0;
+let availableQuestions = [];
 
-},
+//questions array
+let questions = [
+    {
+      question: "Who is the strongest avenger",
+      choice1: 'Captain America',
+      choice2: 'Hulk',
+      choice3: 'Thor',
+      choice4: 'Captain Marvel',
+      answer: 3
+    },
+    {
+      question:
+      "Who is the most skilled fighter of the Avengers",
+      choice1: 'Black Panther',
+      choice2: 'Black Widow',
+      choice3: 'Captain America',
+      choice4: 'Hawkeye',
+      answer: 2
+    },
+    {
+      question: "Who is Ronin",
+      choice1: 'Black Widow',
+      choice2: 'Hawkeye',
+      choice3: 'Task Master',
+      choice4: 'TChalla',
+      answer: 2
+    }
 
-{
-    question: "Who is the most skilled fighter of the Avengers", 
-    questionChoices:['Black Panther','Black Widow','Captain America', 'Hawkeye'],
-    correctAnswer: 'Black Widow',
+  ];
 
-},
+//document required objects I will need 
+//create variable for choice of user
+let choices = Array.from($('.choice-text'));
+console.log(choices);
+let question = $('#question');
 
-{
-    question: "Who is Ronin", 
-    questionChoices:[ 'Black Widow','Hawkeye','Task Master', 'TChalla'],
-    correctAnswer: 'Hawkeye'
 
-},
+//constants for app 
+const score_bonus = 10;
+const max_questions = 3; 
 
-{
-    question: "Who is the tactical leader of the avengers", 
-    questionChoices: [ 'Captin America','Tony Stark','Nick Fury', 'Black Widow'],
-    correctAnswer: 'Captain America'
+// functions for application 
 
-},
-
-{
-    question: "Who is the smartest avenger", 
-    questionChoices: ['Shuri','Bruce Banner','Tony Stark', 'Falcon'],
-    correctAnswer: 'Tony Stark'
-
-},
-
-];
-
-let score = 0;
-let questionNumber = 0;
-let totalNumberQuetions = questionNumber.length;
-
-//initialize quiz
 function init(){
-    $('#start').on('click', function(){
-        $('#start').hide();
-        $("#questions").show();
-        $('.correct').hide();
-        $('.wrong').hide();
-        $('#score').hide();
-        renderQuestions()
-        console.log('started quiz');
-    })
-
-
-    $('#quiz').on('submit', function(event){
-        event.preventDefault();
-
-        $('#start').hide();
-        $("#questions").hide();
-        $('.correct').show();
-        $('.wrong').hide();
-        $('#score').hide();
-        checkAns()
-        console.log('submitted ans to question');
-    })
-
-    $('.ans-feedback').on('click', function(){
-        $('#start').hide();
-        $("#questions").hide();
-        $('.correct').hide();
-        $('.wrong').hide();
-        $('#score').show();
-        renderQuestions()
-        nextQuestion()
-        console.log('submitted time to get total');
-    })
-
-    $('#reset').on('click', function(){
-        $('#start').show();
-        $("#questions").hide();
-        $('.correct').hide();
-        $('.wrong').hide();
-        $('#score').hide();
-        resetQuiz()
-        console.log('go to beginning');
-    })
-
+    questionCounter = 0;
+    availableQuestions = [...questions];
+    console.log(availableQuestions);
+    getNextQuestion();
 }
 
-//this functions loads the questions into the question page
-function renderQuestions() {
-    //display questions to page
-    let questionHtml = `
-    <form class="card" id="quiz">
-    <h2>Question:${Store.question}</h2>
-    <div>
-    <input type="radio" value="">
-    <label for="0">${Store.questionChoices[i]} </label><br>
-    <input type="radio" value="">
-    <label for="1">${Store.questionChoices[i]}</label><br>
-    <input type="radio" value="other">
-    <label for="2">${Store.questionChoices[i]}</label>
-    </div>
-    <button type="submit"> Submit </button>
-    </form>`
+function getNextQuestion(){
+    //condition to check question counter and array 
 
-    //loop thru array of questions 
-    
-    
-    console.log('inside render question');
+    // update question
+    questionCounter++;
+
+    //hud update text
+    $('#questionCounter').html(questionCounter+ "/" + max_questions)
+
+    //random question picker
+    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+    currentQuestion = availableQuestions[questionIndex];
+    $('#question').html(currentQuestion.question);
+
+    //loop thru choices dataset number
+    choices.forEach(choice => {
+        const number = choice.dataset['number'];
+        choice.innerText = currentQuestion['choice' + number];
+    });
+    //remove question from array
+    availableQuestions.splice(questionIndex, 1);
+
+    //accept anwer update
+    acceptAns = true;
 }
 
-//this function handles when the user clicks the submit
-function checkAns() {
-    console.log('inside check answer');
-    nextQuestion()
-}
+function incrementScore(num){
+    score += num;
+    $('#score').html(score); 
+};
 
-//listen to the click on next btn if answer is correct 
-    // user is taken to next question 
-function nextQuestion(){
-    console.log('inside next question');
-}
-
-// func will see if ans is correct and then update score
-function updateScore(){
-    console.log('inside update score');
-}
-
-
-//this will reset the score of the app and takes user to the beginning
-function resetQuiz(){
-    
-}
 
 $(init());
-
-
