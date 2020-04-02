@@ -38,7 +38,7 @@ let questions = [
 //document required objects I will need 
 //create variable for choice of user
 let choices = Array.from($('.choice-text'));
-console.log(choices);
+//console.log(choices);
 let question = $('#question');
 
 
@@ -57,7 +57,10 @@ function init(){
 
 function getNextQuestion(){
     //condition to check question counter and array 
-
+    if(availableQuestions === 0 || questionCounter >= max_questions){
+        //conditional to go to finalscore page
+        return console.log('no more questions');
+    }
     // update question
     questionCounter++;
 
@@ -79,7 +82,41 @@ function getNextQuestion(){
 
     //accept anwer update
     acceptAns = true;
-}
+};
+
+//choices loop thru with a listener for licks to choose 
+// player choice will then apply a class to dom dymanically
+choices.forEach( choice => {
+    choice.addEventListener('click', e => {
+        
+        if(!acceptAns) return;
+        console.log(e.target);
+
+        acceptAns = false;
+        const selectedChoice = e.target; 
+        const selectedAnswer = selectedChoice.dataset['number'];
+
+        //apply class (tenary)
+        const classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
+
+        //update score if correct
+        if(classToApply === 'correct'){
+            incrementScore(score_bonus);
+        }
+
+        //apply class to choice of player 
+        selectedChoice.parentElement.classList.add(classToApply);
+
+        setTimeout(function(){
+            selectedChoice.parentElement.classList.remove(classToApply);
+            getNextQuestion();
+
+        }, 1500);
+
+        console.log(selectedAnswer == currentQuestion.answer);
+    });
+
+});
 
 function incrementScore(num){
     score += num;
