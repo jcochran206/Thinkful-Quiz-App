@@ -18,10 +18,6 @@ h1,h2,h3,h4{
     margin-bottom: 1rem; /*spacing on buttom of h elements */
 }
 
-h1 > span {
-    font-size: 2.4rem;
-    font-weight: 500;
-}
 
 h1 {
     font-size: 5.4rem;
@@ -54,6 +50,7 @@ h3 {
     align-items: center;
     max-width: 80rem;
     margin: 0 auto;
+    
 }
 
 .container > * {

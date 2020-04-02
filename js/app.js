@@ -1,31 +1,33 @@
 //variables 
 let currentQuestion = {};
 let acceptAns = false;
-let score = 35;
+let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
 
 //questions array
 let questions = [
     {
-      question: "Who is the strongest avenger",
+      question: "Who is the strongest avenger?",
       choice1: 'Captain America',
       choice2: 'Hulk',
       choice3: 'Thor',
       choice4: 'Captain Marvel',
       answer: 3
     },
+
     {
       question:
-      "Who is the most skilled fighter of the Avengers",
+      "Who is the most skilled fighter of the Avengers?",
       choice1: 'Black Panther',
       choice2: 'Black Widow',
       choice3: 'Captain America',
       choice4: 'Hawkeye',
       answer: 2
     },
+
     {
-      question: "Who is Ronin",
+      question: "Who is Ronin?",
       choice1: 'Black Widow',
       choice2: 'Hawkeye',
       choice3: 'Task Master',
@@ -44,9 +46,16 @@ let question = $('#question');
 
 //constants for app 
 const score_bonus = 10;
-const max_questions = 3; 
+const max_questions = questions.length; 
 
 // functions for application 
+function start(){
+    $('#home').on('click', function(e){
+        e.preventDefault();
+        return window.location.assign("game.html");
+    });
+    console.log('hit submit to start');
+}
 
 function init(){
     questionCounter = 0;
@@ -64,8 +73,8 @@ function getNextQuestion(){
     // update question
     questionCounter++;
 
-    //hud update text
-    $('#questionCounter').html(questionCounter+ "/" + max_questions)
+    //hud update question text
+    $('#questionCounter').html(questionCounter + " of " + max_questions)
 
     //random question picker
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
@@ -125,3 +134,4 @@ function incrementScore(num){
 
 
 $(init());
+$(start());
