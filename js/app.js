@@ -4,6 +4,7 @@ let acceptAns = false;
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
+const mostRecentScore = localStorage.getItem('mostRecentScore');
 
 //questions array
 let questions = [
@@ -67,8 +68,12 @@ function init(){
 function getNextQuestion(){
     //condition to check question counter and array 
     if(availableQuestions === 0 || questionCounter >= max_questions){
+        
         //conditional to go to finalscore page
-        return console.log('no more questions');
+        //use local storage to store score 
+        localStorage.setItem('mostRecentScore', score);
+        // goes to end game page 
+        return window.location.assign('end.html');
     }
     // update question
     questionCounter++;
@@ -132,6 +137,17 @@ function incrementScore(num){
     $('#score').html(score); 
 };
 
+function endGame(){
+    $('#end').on('click', function(e){
+        e.preventDefault();
+        return window.location.assign("index.html");
+    });
+
+    $('#finalScore').html(mostRecentScore);
+
+    console.log('hit end of game');
+}
 
 $(init());
+$(endGame());
 $(start());
