@@ -73,13 +73,13 @@ function start(){
         e.preventDefault();
         return window.location.assign("game.html");
     });
-    console.log('hit submit to start');
+    //console.log('hit submit to start');
 }
 
 function init(){
     questionCounter = 0;
     availableQuestions = [...questions];
-    console.log(availableQuestions);
+    //console.log(availableQuestions);
     getNextQuestion();
 }
 
@@ -125,6 +125,8 @@ choices.forEach( choice => {
         console.log(e.target);
 
         acceptAns = false;
+        //user selection 
+        //const selectedChoice = e.target; 
         const selectedChoice = e.target; 
         const selectedAnswer = selectedChoice.dataset['number'];
 
@@ -145,7 +147,7 @@ choices.forEach( choice => {
 
         }, 1500);
 
-        console.log(selectedAnswer == currentQuestion.answer);
+        //console.log(selectedAnswer == currentQuestion.answer);
     });
 
 });
@@ -163,7 +165,7 @@ function endGame(){
 
     $('#finalScore').html(mostRecentScore);
 
-    console.log('hit end of game');
+    //console.log('hit end of game');
 }
 
 $(init());
