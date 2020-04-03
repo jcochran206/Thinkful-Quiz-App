@@ -63,6 +63,7 @@ let choices = Array.from($('.choice-text'));
 let question = $('#question');
 
 
+
 //constants for app 
 const score_bonus = 10;
 const max_questions = questions.length; 
@@ -126,7 +127,6 @@ choices.forEach( choice => {
 
         acceptAns = false;
         //user selection 
-        //const selectedChoice = e.target; 
         const selectedChoice = e.target; 
         const selectedAnswer = selectedChoice.dataset['number'];
 
@@ -149,6 +149,7 @@ choices.forEach( choice => {
 
         //console.log(selectedAnswer == currentQuestion.answer);
     });
+    console.log();
 
 });
 
