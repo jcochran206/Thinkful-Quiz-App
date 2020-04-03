@@ -1,7 +1,10 @@
 html {
     background-color: #ecf5ff;
     font-size: 62.5%; /* 10px */
-
+    background-image: url('../imgs/wrongans.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 * {
@@ -156,4 +159,6 @@ h3 {
   .hud-main-text {
       text-align: center;
   }
+
+  /* question */
 
