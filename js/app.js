@@ -34,6 +34,24 @@ let questions = [
       choice3: 'Task Master',
       choice4: 'TChalla',
       answer: 2
+    },
+
+    {
+        question: "Who is the smartest Avenger?",
+        choice1: 'Shuri',
+        choice2: 'Tony Stark',
+        choice3: 'Bruce Banner',
+        choice4: 'Nick Fury',
+        answer: 2
+    },
+
+    {
+        question: "Who is the Tactical Leader of the Avengers?",
+        choice1: 'Captain America',
+        choice2: 'Nick Fury',
+        choice3: 'Iron Man',
+        choice4: 'Falcon',
+        answer: 1
     }
 
   ];
