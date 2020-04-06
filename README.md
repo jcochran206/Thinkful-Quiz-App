@@ -14,4 +14,4 @@ This quiz app will test the user's knowledge of the MCU.
 Jonathan Cochran
 
 ## Live Page
-[Quiz App](https://jcochran206.github.io/Thinkful-Quiz-App/)
+[Quiz App - Marvel Quiz](https://jcochran206.github.io/Thinkful-Quiz-App/)

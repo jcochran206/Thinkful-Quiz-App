@@ -61,6 +61,9 @@ let questions = [
 let choices = Array.from($('.choice-text'));
 //console.log(choices);
 let question = $('#question');
+// display correct answer
+let correctDisplay = $('.choice-correct');
+let wrongDisplay = $('.choice-wrong');
 
 
 
@@ -82,6 +85,9 @@ function init(){
     availableQuestions = [...questions];
     //console.log(availableQuestions);
     getNextQuestion();
+    correctDisplay.hide();
+    wrongDisplay.hide();
+    
 }
 
 function getNextQuestion(){
@@ -115,42 +121,76 @@ function getNextQuestion(){
 
     //accept anwer update
     acceptAns = true;
+
+    //remove inputs by user
+    reset();
 };
 
 //choices loop thru with a listener for licks to choose 
 // player choice will then apply a class to dom dymanically
-choices.forEach( choice => {
-    choice.addEventListener('click', e => {
+// choices.forEach( choice => {
+//     choice.addEventListener('click', e => {
         
+//         if(!acceptAns) return;
+//         console.log(e.target);
+
+//         acceptAns = false;
+//         //user selection 
+//         const selectedChoice = e.target; 
+//         const selectedAnswer = selectedChoice.dataset['number'];
+
+//         //apply class (tenary)
+//         const classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
+
+//         //update score if correct
+//         if(classToApply === 'correct'){
+//             incrementScore(score_bonus);
+//         }
+
+//         //apply class to choice of player 
+//         selectedChoice.parentElement.classList.add(classToApply);
+
+//         setTimeout(function(){
+//             selectedChoice.parentElement.classList.remove(classToApply);
+//             getNextQuestion();
+
+//         }, 1500);
+
+//         //console.log(selectedAnswer == currentQuestion.answer);
+//     });
+//     console.log();
+
+// });
+$('#game').on('submit', function(e){
+    e.preventDefault();
+    
+         
         if(!acceptAns) return;
-        console.log(e.target);
 
-        acceptAns = false;
-        //user selection 
-        const selectedChoice = e.target; 
-        const selectedAnswer = selectedChoice.dataset['number'];
+        const selectedChoice = $("input[type='radio']:checked").val();
+        const selectedAnswer = selectedChoice;
 
-        //apply class (tenary)
         const classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
 
-        //update score if correct
         if(classToApply === 'correct'){
-            incrementScore(score_bonus);
-        }
+                   incrementScore(score_bonus);
+                   setTimeout(() => {
+                    correctDisplay.show().addClass(classToApply);
+                    wrongDisplay.hide();
+                   }, 500);
 
-        //apply class to choice of player 
-        selectedChoice.parentElement.classList.add(classToApply);
+               }else{
+                   $('.choice-text').removeClass(classToApply);
+                   wrongDisplay.show().addClass(classToApply);
+                   correctDisplay.hide();
+               }
+        
 
-        setTimeout(function(){
-            selectedChoice.parentElement.classList.remove(classToApply);
-            getNextQuestion();
 
-        }, 1500);
-
-        //console.log(selectedAnswer == currentQuestion.answer);
-    });
-    console.log();
-
+       getNextQuestion();
+console.log(selectedChoice);
+console.log(selectedAnswer);
+console.log(currentQuestion);
 });
 
 function incrementScore(num){
@@ -158,10 +198,17 @@ function incrementScore(num){
     $('#score').html(score); 
 };
 
+function reset(){
+    $('input[type="radio"]').prop('checked', false);
+}
+
+
 function endGame(){
     $('#end').on('click', function(e){
         e.preventDefault();
         return window.location.assign("index.html");
+
+        acceptAns = false;
     });
 
     $('#finalScore').html(mostRecentScore);
