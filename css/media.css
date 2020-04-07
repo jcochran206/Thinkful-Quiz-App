@@ -1,0 +1,25 @@
+@media screen and (max-width: 600px) {
+   .container {
+       display: flex;
+       justify-content: center;
+       text-align: center;
+   }
+
+   .title{
+       text-align: center;
+   }
+
+   /* .justify-center {
+       display: flex;
+       flex-direction: column;
+       text-align: center;
+   } */
+
+   /* hud */
+   #hud {
+       display: flex;
+       flex-direction: column;
+   }
+
+   
+}
