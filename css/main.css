@@ -157,5 +157,58 @@ h3 {
       text-align: center;
   }
 
-  /* question */
+  /* media queries */
+  @media screen and (min-width: 320px) {
+    .container {
+        text-align: center;
+    }
+ 
+    .title{
+        text-align: center;
+    }
+ 
+ 
+    /* hud */
+    #hud {
+        display: flex;
+        flex-direction: column;
+    }
+ 
+ 
+    h1 {
+     font-size: 4rem;
+     margin-bottom: 3rem;
+    }
+ 
+ h2 {
+     font-size: 3rem;
+     margin-bottom: 2rem;
+     color: #7F3FBF;
+    }
+ 
+ h3 {
+     font-size: 2rem;
+     margin-bottom: 0.5rem;
+    }
+
+    .hud-prefix {
+      text-align: center;
+      font-size: 2rem;
+      color: #c087f8;
+  }
+    
+ }
+ @media screen and (min-width: 700px) {
+   body{
+     color: #7F3FBF;
+   }
+
+
+   .hud-prefix {
+    text-align: center;
+    font-size: 2rem;
+    color: #c087f8;
+}
+
+ }
 
