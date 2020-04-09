@@ -84,9 +84,11 @@ function init(){
     questionCounter = 0;
     availableQuestions = [...questions];
     //console.log(availableQuestions);
+    start();
     getNextQuestion();
     correctDisplay.hide();
     wrongDisplay.hide();
+    endGame();
     
 }
 
@@ -126,41 +128,7 @@ function getNextQuestion(){
     reset();
 };
 
-//choices loop thru with a listener for licks to choose 
-// player choice will then apply a class to dom dymanically
-// choices.forEach( choice => {
-//     choice.addEventListener('click', e => {
-        
-//         if(!acceptAns) return;
-//         console.log(e.target);
 
-//         acceptAns = false;
-//         //user selection 
-//         const selectedChoice = e.target; 
-//         const selectedAnswer = selectedChoice.dataset['number'];
-
-//         //apply class (tenary)
-//         const classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
-
-//         //update score if correct
-//         if(classToApply === 'correct'){
-//             incrementScore(score_bonus);
-//         }
-
-//         //apply class to choice of player 
-//         selectedChoice.parentElement.classList.add(classToApply);
-
-//         setTimeout(function(){
-//             selectedChoice.parentElement.classList.remove(classToApply);
-//             getNextQuestion();
-
-//         }, 1500);
-
-//         //console.log(selectedAnswer == currentQuestion.answer);
-//     });
-//     console.log();
-
-// });
 $('#game').on('submit', function(e){
     e.preventDefault();
     
@@ -188,9 +156,7 @@ $('#game').on('submit', function(e){
 
 
        getNextQuestion();
-console.log(selectedChoice);
-console.log(selectedAnswer);
-console.log(currentQuestion);
+
 });
 
 function incrementScore(num){
@@ -217,5 +183,3 @@ function endGame(){
 }
 
 $(init());
-$(endGame());
-$(start());
